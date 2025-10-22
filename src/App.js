@@ -20,12 +20,12 @@ function App() {
         <AIPhotoSection />
         {/* //<FeaturesSection /> */}
         {/* <CallToActionSection /> */}
-        <PhotoGallerySection />
-        <TestimonialsSection />
-        <EventCreationFlow />
-        <PricingPlans />
+        <PhotoGallerySection/>
+        <TestimonialsSection/>
+        <EventCreationFlow/>
+        <PricingPlans/>
         <EnterprisePlanCard />
-        <SmarterPhotoManagement />
+        <SmarterPhotoManagement/>
         <Footer />
       </div>
     </Router>
