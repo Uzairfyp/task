@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Check, Circle } from "lucide-react";
 
 const PricingPlans = () => {
-  const [billingCycle, setBillingCycle] = useState("annual"); // "monthly" or "annual"
+  const [billingCycle, setBillingCycle] = useState("annual"); // monthly or annual
 
   const plans = [
     {
@@ -13,9 +13,9 @@ const PricingPlans = () => {
       bestValue: false,
       storage: "—",
       branding: "None",
-      uncompressed: "partial",
+      uncompressedimages: "partial",
       memories: "None",
-      whatsapp: "5",
+      whatsappcredits: "5",
       domain: "Foto Owl Domain",
     },
     {
@@ -27,9 +27,9 @@ const PricingPlans = () => {
       bestValue: false,
       storage: "50GB",
       branding: "Limited",
-      uncompressed: "yes",
+      uncompressedimages: "yes",
       memories: "None",
-      whatsapp: "50",
+      whatsappcredits: "50",
       domain: "fotoowl",
     },
     {
@@ -41,9 +41,9 @@ const PricingPlans = () => {
       bestValue: false,
       storage: "100GB",
       branding: "Limited",
-      uncompressed: "yes",
+      uncompressedimages: "yes",
       memories: "None",
-      whatsapp: "100",
+      whatsappcredits: "100",
       domain: "fotoowl",
     },
     {
@@ -55,9 +55,9 @@ const PricingPlans = () => {
       bestValue: true,
       storage: "500GB",
       branding: "Limited",
-      uncompressed: "yes",
+      uncompressedimages: "yes",
       memories: "10 Memories: Save 200GB",
-      whatsapp: "500",
+      whatsappcredits: "500",
       domain: "Custom Subdomain",
     },
     {
@@ -69,9 +69,9 @@ const PricingPlans = () => {
       bestValue: false,
       storage: "1000GB",
       branding: "Limited",
-      uncompressed: "yes",
+      uncompressedimages: "yes",
       memories: "15 Memories: Save 300GB",
-      whatsapp: "1000",
+      whatsappcredits: "1000",
       domain: "Customisable",
     },
     {
@@ -83,9 +83,9 @@ const PricingPlans = () => {
       bestValue: false,
       storage: "Customisable",
       branding: "Limited",
-      uncompressed: "yes",
+      uncompressedimages: "yes",
       memories: "Customisable",
-      whatsapp: "Customisable",
+      whatsappcredits: "Customisable",
       domain: "Customisable",
     },
   ];
@@ -101,6 +101,7 @@ const PricingPlans = () => {
 
   return (
     <section className="bg-gradient-to-b from-pink-50 to-pink-100 py-20 px-4 md:px-10 rounded-t-[3rem]">
+      {/* Heading */}
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-900 mb-3">
           Choose Perfect Plan for You
@@ -111,7 +112,7 @@ const PricingPlans = () => {
         </p>
       </div>
 
-      {/* Toggle Buttons */}
+      {/* Billing Toggle */}
       <div className="flex justify-center mb-10">
         <div className="bg-white rounded-full p-1 flex shadow-md">
           <button
@@ -159,9 +160,7 @@ const PricingPlans = () => {
                       Best Value Plan
                     </div>
                   )}
-                  <div className="font-bold text-sm mb-2 uppercase">
-                    {plan.name}
-                  </div>
+                  <div className="font-bold text-sm mb-2 uppercase">{plan.name}</div>
                   <div className="text-lg font-semibold">
                     {plan.price}
                     {plan.price !== "Contact Us" && (
@@ -194,9 +193,7 @@ const PricingPlans = () => {
           <tbody>
             {features.map((feature) => (
               <tr key={feature} className="border-t border-pink-100">
-                <td className="text-left py-4 pl-6 font-medium text-gray-700">
-                  {feature}
-                </td>
+                <td className="text-left py-4 pl-6 font-medium text-gray-700">{feature}</td>
                 {plans.map((plan) => {
                   const isDark = plan.bestValue;
                   const value = plan[feature.toLowerCase().replace(/ /g, "")];
@@ -206,16 +203,12 @@ const PricingPlans = () => {
                     displayValue =
                       value === "yes" ? (
                         <Check
-                          className={`mx-auto ${
-                            isDark ? "text-white" : "text-green-500"
-                          }`}
+                          className={`mx-auto ${isDark ? "text-white" : "text-green-500"}`}
                           size={18}
                         />
                       ) : value === "partial" ? (
                         <Circle
-                          className={`mx-auto ${
-                            isDark ? "text-yellow-400" : "text-yellow-400"
-                          }`}
+                          className={`mx-auto ${isDark ? "text-yellow-400" : "text-yellow-400"}`}
                           size={14}
                         />
                       ) : (
@@ -223,23 +216,14 @@ const PricingPlans = () => {
                       );
                   } else {
                     displayValue = (
-                      <span
-                        className={`${
-                          isDark ? "text-gray-100" : "text-gray-800"
-                        } text-sm`}
-                      >
+                      <span className={`${isDark ? "text-gray-100" : "text-gray-800"} text-sm`}>
                         {value || "—"}
                       </span>
                     );
                   }
 
                   return (
-                    <td
-                      key={plan.name}
-                      className={`py-4 ${
-                        isDark ? "bg-[#0B2249]" : "bg-white"
-                      }`}
-                    >
+                    <td key={plan.name} className={`py-4 ${isDark ? "bg-[#0B2249]" : "bg-white"}`}>
                       {displayValue}
                     </td>
                   );

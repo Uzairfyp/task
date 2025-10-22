@@ -1,6 +1,24 @@
 import React from "react";
 
 const PhotoGallerySection = () => {
+  const cards = [
+    {
+      title: "Simply Like to Select",
+      description: "Easy photo selection with a simple like action.",
+      image: "/wallpaper/6.jpg",
+    },
+    {
+      title: "Comment Specific Needs",
+      description: "Add comments for specific requirements or feedback.",
+      image: "/wallpaper/3.jpg",
+    },
+    {
+      title: "Select on Any Device",
+      description: "Select photos from any device, anywhere.",
+      image: "/wallpaper/5.jpg",
+    },
+  ];
+
   return (
     <section className="flex flex-col md:flex-row items-center justify-between p-10 gap-10 bg-white rounded-2xl shadow-md">
       {/* LEFT SIDE CONTENT */}
@@ -27,56 +45,22 @@ const PhotoGallerySection = () => {
 
       {/* RIGHT SIDE CARDS */}
       <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {/* Card 1 */}
-        <div className="rounded-2xl shadow-md hover:shadow-lg transition-all text-center overflow-hidden bg-white">
-          <img
-            src="/wallpaper/6.jpg"
-            alt="Simply Like to Select"
-            className="w-full h-40 object-cover"
-          />
-          <div className="p-4 space-y-2">
-            <h3 className="font-semibold text-gray-800 text-lg">
-              Simply Like to Select
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Easy photo selection with a simple like action.
-            </p>
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="rounded-2xl shadow-md hover:shadow-lg transition-all text-center overflow-hidden bg-white"
+          >
+            <img
+              src={process.env.PUBLIC_URL + card.image}
+              alt={card.title}
+              className="w-full h-40 object-cover"
+            />
+            <div className="p-4 space-y-2">
+              <h3 className="font-semibold text-gray-800 text-lg">{card.title}</h3>
+              <p className="text-gray-600 text-sm">{card.description}</p>
+            </div>
           </div>
-        </div>
-
-        {/* Card 2 */}
-        <div className="rounded-2xl shadow-md hover:shadow-lg transition-all text-center overflow-hidden bg-white">
-          <img
-            src="/wallpaper/3.jpg"
-            alt="Comment Specific Needs"
-            className="w-full h-40 object-cover"
-          />
-          <div className="p-4 space-y-2">
-            <h3 className="font-semibold text-gray-800 text-lg">
-              Comment Specific Needs
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Add comments for specific requirements or feedback.
-            </p>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="rounded-2xl shadow-md hover:shadow-lg transition-all text-center overflow-hidden bg-white">
-          <img
-            src="/wallpaper/5.jpg"
-            alt="Select on Any Device"
-            className="w-full h-40 object-cover"
-          />
-          <div className="p-4 space-y-2">
-            <h3 className="font-semibold text-gray-800 text-lg">
-              Select on Any Device
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Select photos from any device, anywhere.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

@@ -53,21 +53,15 @@ function TestimonialsSection() {
             {/* Quote Icon */}
             <Quote
               size={20}
-              className={`mb-3 ${
-                item.dark ? "text-white/70" : "text-gray-400"
-              }`}
+              className={`mb-3 ${item.dark ? "text-white/70" : "text-gray-400"}`}
             />
 
             {/* Testimonial Text */}
-            <p
-              className={`text-sm leading-relaxed ${
-                item.dark ? "text-white/90" : "text-gray-700"
-              }`}
-            >
+            <p className={`text-sm leading-relaxed ${item.dark ? "text-white/90" : "text-gray-700"}`}>
               {item.text}
             </p>
 
-            {/* Stars (if any) */}
+            {/* Stars */}
             {item.rating > 0 && (
               <div className="flex mt-4 space-x-1 text-yellow-400">
                 {[...Array(item.rating)].map((_, i) => (
@@ -78,18 +72,10 @@ function TestimonialsSection() {
 
             {/* User Info */}
             <div className="mt-4">
-              <p
-                className={`text-sm font-semibold ${
-                  item.dark ? "text-white" : "text-gray-800"
-                }`}
-              >
+              <p className={`text-sm font-semibold ${item.dark ? "text-white" : "text-gray-800"}`}>
                 {item.name}
               </p>
-              <p
-                className={`text-xs ${
-                  item.dark ? "text-white/70" : "text-gray-500"
-                }`}
-              >
+              <p className={`text-xs ${item.dark ? "text-white/70" : "text-gray-500"}`}>
                 {item.role}
               </p>
             </div>
@@ -105,8 +91,6 @@ function TestimonialsSection() {
           </div>
         ))}
       </div>
-
-    
     </section>
   );
 }
