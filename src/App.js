@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom"; // Add this
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
@@ -12,21 +13,22 @@ import SmarterPhotoManagement from "./components/SmarterPhotoManagement";
 
 function App() {
   return (
-    <div className="font-sans">
-      <Navbar />
-      <HeroSection />
-      <AIPhotoSection/>
-      {/* //<FeaturesSection /> */}
-      {/* <CallToActionSection /> */}
-      <PhotoGallerySection/>
-      <TestimonialsSection/>
-      <EventCreationFlow/>
-      <PricingPlans/>
-      <EnterprisePlanCard/>
-      <SmarterPhotoManagement/>
-      
-      <Footer />
-    </div>
+    <Router basename="/task"> {/* Set the basename to your repo name */}
+      <div className="font-sans">
+        <Navbar />
+        <HeroSection />
+        <AIPhotoSection />
+        {/* //<FeaturesSection /> */}
+        {/* <CallToActionSection /> */}
+        <PhotoGallerySection />
+        <TestimonialsSection />
+        <EventCreationFlow />
+        <PricingPlans />
+        <EnterprisePlanCard />
+        <SmarterPhotoManagement />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
